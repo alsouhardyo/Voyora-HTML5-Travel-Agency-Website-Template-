@@ -184,7 +184,7 @@ export default function Sidebar() {
             {/* Apply Filters Button */}
             <button 
                 onClick={clearAllFilters}
-                className="w-full bg-orange-400 hover:bg-orange-500 text-white font-semibold py-3 px-4 rounded-lg transition-colors duration-300"
+                className="w-full bg-orange-400 hover:bg-orange-500 text-white font-semibold py-3 px-4 rounded-lg transition-colors duration-500 ease-in-out cursor-pointer"
             >
                 Apply Filters
             </button>
