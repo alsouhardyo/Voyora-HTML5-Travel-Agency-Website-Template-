@@ -1,8 +1,14 @@
 "use client";
 import { useEffect } from "react";
 import Lenis from "lenis";
+import { usePathname } from "next/navigation";
 
 export default function LenisScroll() {
+    const pathname = usePathname();
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [pathname]);
+    
     useEffect(() => {
         const lenis = new Lenis({
             duration: 1.5,
