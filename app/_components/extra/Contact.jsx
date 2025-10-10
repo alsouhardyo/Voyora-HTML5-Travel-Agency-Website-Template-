@@ -2,14 +2,20 @@
 import { useState } from "react";
 import { MapPin, Phone, Mail } from "lucide-react";
 import { showToast } from "../../_lib/showToast";
+import SpotlightCard from "../../_ui/SpotlightCard.jsx";
 
 export default function Contact() {
-    const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
+    const [formData, setFormData] = useState({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+    });
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        showToast("👍 Sent Successfully"); 
-        setFormData({ name: '', email: '', subject: '', message: '' });
+        showToast("👍 Sent Successfully");
+        setFormData({ name: "", email: "", subject: "", message: "" });
     };
 
     const contactInfo = [
@@ -18,22 +24,22 @@ export default function Contact() {
             title: "Our Location",
             info: "123 Travel Street, Adventure City, AC 12345",
             color: "text-blue-600",
-            bgColor: "bg-blue-100"
+            bgColor: "bg-blue-100",
         },
         {
             icon: Phone,
             title: "Phone Number",
             info: "+1 (555) 123-4567",
             color: "text-green-600",
-            bgColor: "bg-green-100"
+            bgColor: "bg-green-100",
         },
         {
             icon: Mail,
             title: "Email Address",
             info: "contact@voyora.com",
             color: "text-orange-600",
-            bgColor: "bg-orange-100"
-        }
+            bgColor: "bg-orange-100",
+        },
     ];
 
     return (
@@ -43,9 +49,10 @@ export default function Contact() {
                 {contactInfo.map((contact, index) => {
                     const Icon = contact.icon;
                     return (
-                        <div
+                        <SpotlightCard
                             key={index}
-                            className="bg-white rounded-2xl shadow-lg p-8 text-center hover:shadow-xl transition-shadow duration-300"
+                            spotlightColor="rgba(245, 149, 39, 0.25)"
+                            className="bg-white rounded-2xl shadow-lg p-8 text-center hover:shadow-xl transition-shadow duration-500 ease-in-out border border-zinc-200 cursor-pointer"
                         >
                             <div
                                 className={`w-16 h-16 ${contact.bgColor} rounded-full flex items-center justify-center mx-auto mb-4`}
@@ -56,7 +63,7 @@ export default function Contact() {
                                 {contact.title}
                             </h3>
                             <p className="text-gray-600">{contact.info}</p>
-                        </div>
+                        </SpotlightCard>
                     );
                 })}
             </div>
@@ -154,7 +161,7 @@ export default function Contact() {
 
                             <button
                                 type="submit"
-                                className="w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                                className="w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl cursor-pointer"
                             >
                                 Send Message
                             </button>
