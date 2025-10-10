@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import { ChevronDown, Menu as MenuIcon, X } from "lucide-react";
 
@@ -75,13 +75,14 @@ export default function Header() {
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
+
+    useEffect(() => {
+        setIsOpen(false);
+    }, [pathname]);
+
     return (
         <motion.header
-            className={`w-full min-h-16 px-4 lg:px-10 lg:py-4 flex justify-between items-center bg-white transition-all duration-300 ${
-                isScrolled
-                    ? "sticky top-0 left-0 z-[9999] shadow-lg backdrop-blur-lg bg-white/75 header-anim"
-                    : "relative"
-            }`}
+            className={`w-full min-h-16 px-4 lg:px-10 lg:py-4 flex justify-between items-center bg-white transition-all duration-500 ease-in-out ${isScrolled ? "sticky top-0 left-0 z-[9999] header-anim shadow-lg" : ""}`}
         >
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2">
@@ -201,13 +202,10 @@ export default function Header() {
                 />
             )}
             {/* Mobile Navbar */}
-
-            <AnimatePresence>
                 {isOpen && (
                     <motion.div
                         initial={{ x: 300, opacity: 0 }}
                         animate={{ x: 0, opacity: 1 }}
-                        exit={{ x: 300, opacity: 0 }}
                         transition={{ duration: 0.5, ease: "easeInOut" }}
                         className="lg:hidden absolute right-0 top-0 z-[9999] w-4/5 h-screen bg-white shadow-lg border-l border-gray-200"
                     >
@@ -299,7 +297,7 @@ export default function Header() {
                         </div>
                     </motion.div>
                 )}
-            </AnimatePresence>
+            
         </motion.header>
     );
 }
