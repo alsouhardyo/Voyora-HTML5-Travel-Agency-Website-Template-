@@ -227,7 +227,7 @@ export default function Tourdetails() {
                                                 openFaq === index ? null : index
                                             )
                                         }
-                                        className="w-full flex justify-between items-center p-4 text-left hover:bg-gray-50 transition-colors"
+                                        className="w-full flex justify-between items-center p-4 text-left hover:bg-gray-50 transition-colors cursor-pointer"
                                     >
                                         <span className="font-semibold text-gray-800">
                                             {faq.question}
