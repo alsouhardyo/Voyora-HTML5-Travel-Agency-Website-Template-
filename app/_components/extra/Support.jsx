@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { Mail, Phone, MessageCircle, HeadphonesIcon, Clock, MapPin, ChevronRight } from "lucide-react";
+import SpotlightCard from "../../_ui/SpotlightCard.jsx";
 
 export default function Support() {
     const [formData, setFormData] = useState({ name: '', email: '', question: '', comment: '' });
@@ -160,7 +161,8 @@ export default function Support() {
                         {supportServices.map((service, index) => {
                             const Icon = service.icon;
                             return (
-                                <div
+                                <SpotlightCard
+                                    spotlightColor="rgba(245, 149, 39, 0.25)"
                                     key={index}
                                     className="group bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
                                 >
@@ -179,7 +181,7 @@ export default function Support() {
                                             <ChevronRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform duration-300" />
                                         </button>
                                     </div>
-                                </div>
+                                </SpotlightCard>
                             );
                         })}
                     </div>
