@@ -85,7 +85,7 @@ export default function Header() {
             className={`w-full min-h-16 px-4 lg:px-10 lg:py-4 flex justify-between items-center bg-white transition-all duration-500 ease-in-out ${isScrolled ? "sticky top-0 left-0 z-[9999] header-anim shadow-lg" : ""}`}
         >
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-2">
+            <Link href="#" className="flex items-center gap-2">
                 <Image
                     src="/logo.png"
                     alt="Voyora Logo"
